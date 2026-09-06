@@ -17,7 +17,7 @@ One line per source skill or pattern. Columns: source, verdict
 | skill | source path | verdict | state | note |
 |---|---|---|---|---|
 | caddy-reverse-proxy | raspberry_pi/services/caddy/, raspberry_pi/services/check_caddy.sh | anonymize | tested | strip real domains/emails from Caddyfile |
-| tailscale-funnel | bin/servers/tailscale-personal, bin/servers/tailscale-acoru | anonymize | todo | strip tailnet names and ACL tags |
+| tailscale-funnel | ansible/roles/pi_server/tasks/06_docker_stack.yml, ansible/group_vars/all/vars.yml, raspberry_pi/services/caddy/config/Caddyfile | anonymize | tested | serve vs funnel, no auth key held so the test checks CLI flags, not a live tailnet |
 | pi-hardening | ansible/roles/pi_server/, ansible/roles/common/ | anonymize | todo | strip LAN IPs, ssh_config.j2 real host aliases |
 | telegram-bot-deployment | raspberry_pi/services/webhooks_and_serverbot/ | anonymize | todo | strip bot tokens, chat IDs, /home/pi paths |
 | wol-wake-and-remote-shutdown | serverbot_commands.py (trigger_lan_command), ansible/roles/plex_server/templates/sudoers_shutdown.j2, raspberry_pi/services/lan_runner.py.j2 | anonymize | todo | strip MAC address, static LAN IP |
@@ -34,6 +34,6 @@ One line per source skill or pattern. Columns: source, verdict
 ## Verdict Counts
 
 - ship: 4, anonymize: 6, exclude: 2 individually-checked + 1 bulk line (~40 folders)
-- todo: 5, tested: 8 (the 2 exclude rows, the bulk exclude line, vps-basics,
+- todo: 4, tested: 9 (the 2 exclude rows, the bulk exclude line, vps-basics,
   backup-restore-drill, service-health-check, systemd-unit-authoring,
-  caddy-reverse-proxy)
+  caddy-reverse-proxy, tailscale-funnel)
