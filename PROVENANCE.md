@@ -8,7 +8,7 @@ One line per source skill or pattern. Columns: source, verdict
 | skill | verdict | state | note |
 |---|---|---|---|
 | vps-basics | ship | tested | ufw + fail2ban baseline, no source skill covers this |
-| backup-restore-drill | ship | todo | restore-tested backup drill, no source skill covers this |
+| backup-restore-drill | ship | tested | restore-tested backup drill, no source skill covers this |
 | service-health-check | ship | todo | health-check pattern, no source skill covers this |
 | systemd-unit-authoring | ship | todo | unit-file authoring, no source skill covers this |
 
@@ -34,4 +34,5 @@ One line per source skill or pattern. Columns: source, verdict
 ## Verdict Counts
 
 - ship: 4, anonymize: 6, exclude: 2 individually-checked + 1 bulk line (~40 folders)
-- todo: 9, tested: 4 (the 2 exclude rows, the bulk exclude line, vps-basics)
+- todo: 8, tested: 5 (the 2 exclude rows, the bulk exclude line, vps-basics,
+  backup-restore-drill)
