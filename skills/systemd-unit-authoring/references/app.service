@@ -1,0 +1,16 @@
+[Unit]
+Description=<name>
+After=network.target
+
+[Service]
+Type=simple
+User=<user>
+WorkingDirectory=<absolute-path>
+ExecStart=<absolute-path-to-binary-or-script>
+Restart=on-failure
+RestartSec=5
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
