@@ -1,5 +1,7 @@
 # Agent Skills Pack: Homelab and VPS Ops
 
+![tests](https://github.com/automate-it-all/agent-skills-pack/actions/workflows/tests.yml/badge.svg)
+
 Ten AgentSkills-layout skills (`skills/<name>/SKILL.md` plus `references/`)
 for running a home server or small VPS: reverse proxy, remote access,
 hardening, bot deployment, backup, health checks. Four are free, under
@@ -7,6 +9,28 @@ hardening, bot deployment, backup, health checks. Four are free, under
 public repo by `.gitignore`.
 
 Contact for the pack: skills@automate-it-all.win.
+
+## Free Skills
+
+| skill | what it does |
+|---|---|
+| `vps-basics` | Locks down a fresh VPS or homelab box with ufw and fail2ban. |
+| `backup-restore-drill` | Pairs every backup with a restore drill, so a backup counts only once it has been read back. |
+| `service-health-check` | Checks process, port and HTTP layers in order, and restarts or alerts on the first that fails. |
+| `systemd-unit-authoring` | Turns a script into a systemd service that restarts on crash and starts on boot. |
+
+## Paid Skills: 19 EUR for 30 Days, Then 39 EUR
+
+| skill | what it does |
+|---|---|
+| `caddy-reverse-proxy` | Reverse-proxies homelab services behind Caddy, private-subnet-only by default. |
+| `tailscale-funnel` | Reaches a homelab box from anywhere over Tailscale's mesh or public edge, even behind CGNAT. |
+| `pi-hardening` | Locks a headless Pi to key-only SSH and a scoped sudo allowlist from one whitelist file. |
+| `telegram-bot-deployment` | Deploys a Telegram bot as a control channel, gated by a chat-ID allowlist. |
+| `wan-failover-uplink-guard` | Fails a dual-homed box onto its backup uplink when the WAN dies but the link stays up. |
+| `wol-wake-and-remote-shutdown` | Wakes a sleeping server over the LAN and shuts it back down, without holding a login on it. |
+
+Buy the paid six from the store once it ships; this line gets the payment link.
 
 ## Layout
 
@@ -18,7 +42,10 @@ Contact for the pack: skills@automate-it-all.win.
 - `tests/<name>.sh` runs one skill's own steps inside a fresh Docker
   container. `tests/run.sh` runs all of them.
 
-## Agents That Ran This Pack
+## Agent Compatibility
 
-Hermes ran `tests/run.sh` over the full skill set. Claude Code ran one
-smoke test of `skills/service-health-check` by hand.
+| agent | status |
+|---|---|
+| Claude Code | Reads `SKILL.md` front matter natively; no extra loader needed. |
+| Hermes | Ran `tests/run.sh` over the full ten-skill set before this pack shipped. |
+| Any AgentSkills-spec loader | Reads the `skills/<name>/SKILL.md` layout; untested against a specific one. |
