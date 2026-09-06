@@ -49,3 +49,7 @@ Buy the paid six from the store once it ships; this line gets the payment link.
 | Claude Code | Reads `SKILL.md` front matter natively; no extra loader needed. |
 | Hermes | Ran `tests/run.sh` over the full ten-skill set before this pack shipped. |
 | Any AgentSkills-spec loader | Reads the `skills/<name>/SKILL.md` layout; untested against a specific one. |
+
+---
+
+**Skills** · skills@automate-it-all.win · part of [Automate It All](https://automate-it-all.win) — [YouTube](https://www.youtube.com/@automateitallwin) · [Telegram](https://t.me/AutomateItAll) · [GitHub](https://github.com/automate-it-all) · [Reddit](https://www.reddit.com/user/AutomateItAllWin) · [X](https://x.com/automateallthin)
