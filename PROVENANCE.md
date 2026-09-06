@@ -20,7 +20,7 @@ One line per source skill or pattern. Columns: source, verdict
 | tailscale-funnel | ansible/roles/pi_server/tasks/06_docker_stack.yml, ansible/group_vars/all/vars.yml, raspberry_pi/services/caddy/config/Caddyfile | anonymize | tested | serve vs funnel, no auth key held so the test checks CLI flags, not a live tailnet |
 | pi-hardening | ansible/roles/pi_server/templates/sudoers_pi.j2, ansible/roles/common/tasks/main.yml (authorized_key whitelist) | anonymize | tested | key-only SSH plus a scoped NOPASSWD allowlist, no real IPs/hosts in the skill |
 | telegram-bot-deployment | raspberry_pi/services/webhooks_and_serverbot/ | anonymize | tested | strip bot tokens, chat IDs, /home/pi paths |
-| wol-wake-and-remote-shutdown | serverbot_commands.py (trigger_lan_command), ansible/roles/plex_server/templates/sudoers_shutdown.j2, raspberry_pi/services/lan_runner.py.j2 | anonymize | todo | strip MAC address, static LAN IP |
+| wol-wake-and-remote-shutdown | serverbot_commands.py (trigger_lan_command), ansible/roles/plex_server/templates/sudoers_shutdown.j2, raspberry_pi/services/lan_runner.py.j2 | anonymize | tested | strip MAC address, static LAN IP; test stubs etherwake/ssh, asserts backup runs before shutdown |
 | wan-failover-uplink-guard | ansible/roles/pi_server/templates/uplink-guard.sh.j2 | anonymize | todo | strip real interface names if hardcoded, keep the metric-race writeup |
 
 ## From ~/.hermes/skills/ (Excluded)
@@ -34,6 +34,7 @@ One line per source skill or pattern. Columns: source, verdict
 ## Verdict Counts
 
 - ship: 4, anonymize: 6, exclude: 2 individually-checked + 1 bulk line (~40 folders)
-- todo: 2, tested: 11 (the 2 exclude rows, the bulk exclude line, vps-basics,
+- todo: 1, tested: 12 (the 2 exclude rows, the bulk exclude line, vps-basics,
   backup-restore-drill, service-health-check, systemd-unit-authoring,
-  caddy-reverse-proxy, tailscale-funnel, pi-hardening, telegram-bot-deployment)
+  caddy-reverse-proxy, tailscale-funnel, pi-hardening, telegram-bot-deployment,
+  wol-wake-and-remote-shutdown)
