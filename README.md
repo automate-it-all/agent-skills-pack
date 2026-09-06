@@ -10,6 +10,11 @@ public repo by `.gitignore`.
 
 Contact for the pack: skills@automate-it-all.win.
 
+![Hermes running service-health-check](docs/skill-demo.gif)
+
+Hermes reads `service-health-check`'s `SKILL.md` and runs its Step 1 script
+unmodified, against a live loopback server.
+
 ## Free Skills
 
 | skill | what it does |
