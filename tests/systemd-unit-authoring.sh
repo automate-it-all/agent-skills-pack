@@ -12,8 +12,9 @@ cid=$(docker run -d --privileged --cgroupns=host \
   ')
 trap 'docker rm -f "$cid" >/dev/null 2>&1' EXIT
 
-# Wait for systemd itself to come up inside the container.
-for i in $(seq 1 30); do
+# Wait for systemd itself to come up inside the container. apt-get install of
+# systemd+systemd-sysv can take well over 30s under load, so give it room.
+for i in $(seq 1 120); do
   docker exec "$cid" systemctl is-system-running 2>/dev/null | grep -qE 'running|degraded' && break
   sleep 1
 done
